@@ -1,0 +1,14 @@
+ip access-list extended ACL
+RT1(config-ext-nacl)# deny tcp host 172.31.1.101 host 64.101.255.254 eq 80
+RT1(config-ext-nacl)# deny tcp host 172.31.1.101 host 64.103.255.254 eq 80
+RT1(config-ext-nacl)# deny tcp host 172.31.1.101 host 64.103.255.254 eq 80
+RT1(config-ext-nacl)# deny tcp host 172.31.1.101 host 64.103.255.254 eq 443
+RT1(config-ext-nacl)# deny tcp host 172.31.1.102 host 64.101.255.254 eq 21
+RT1(config-ext-nacl)# deny tcp host 172.31.1.102 host 64.103.255.254 eq 21
+RT1(config-ext-nacl)# deny icmp host 172.31.1.103 host 64.101.255.254
+RT1(config-ext-nacl)# deny icmp host 172.31.1.103 host 64.103.255.254
+RT1(config-ext-nacl)# permit ip any any
+RT1# show access-lists
+RT1# show running-config | begin access-list
+RT1(config)# interface g0/0
+RT1(config-f)# ip access-group ACL in
