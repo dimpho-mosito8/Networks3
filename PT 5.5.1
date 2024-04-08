@@ -4,7 +4,7 @@ HQ(config)#access-list 101 permit ip any any
 HQ(config)#interface Serial0/1/0
 HQ(config-if)#ip access-group 101 in
 
-HQ(config)#access-list 111 deny ip any host 192.168.2.45
+HQ(config)#access-list 111 deny ip 192.168.1.0 0.0.0.63 host 192.168.2.45
 HQ(config)#access-list 111 permit ip any any
 HQ(config)#interface GigabitEthernet0/0/0
 HQ(config-if)#ip access-group 111 in
