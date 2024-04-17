@@ -1,0 +1,8 @@
+// Same cmds in R1 and R2
+R1# show ntp status
+R1# show clock detail
+R1(config)# ntp server 209.165.200.225 // this is the addr of the server you want to set the time according to
+R1# show clock detail
+R1# show ntp status
+R1# show ntp associations
+
