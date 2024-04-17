@@ -1,0 +1,30 @@
+//from the command prompt of PC:
+PC> ssh –l admin01 192.168.1.1 // Address of deafult gateway
+// This will take you into the router Edge
+Edge# show cdp
+Edge(config)# no cdp run // disable cdp
+Edge(config)# lldp run  // enable lldp
+Edge(config)# int g0/0 // going into switch. For security purposes it can receive but not transmit messages to the switch
+Edge(config-if)# no lldp transmit 
+Edge(config-if)# exit
+Edge# ssh –l admin01 192.168.1.2 // going into the switch now
+S1> show lldp neighbors
+S1> exit
+Edge# ssh –l RBOadmin 209.165.200.10 // going into the other branch
+RBO-Edge# show lldp
+RBO-Edge# show ip interface brief // this is to figure out which int is connected to the internet, we wil have to disable lldp for it
+RBO-Edge(config)# lldp run
+RBO-Edge(config)# interface g0/0 
+RBO-Edge(config-if)# no lldp transmit
+RBO-Edge(config-if)# no lldp receive
+RBO-Edge(config-if)# exit
+RBO-Edge# show lldp neighbors
+
+
+
+
+
+
+
+
+
