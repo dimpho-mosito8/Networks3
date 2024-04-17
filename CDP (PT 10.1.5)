@@ -1,0 +1,12 @@
+// from cmd prompt on PC
+PC> ssh –l admin01 192.168.1.1 //going into the router 
+Edge1#show ip int brief
+Edge1# ssh –l branchadmin 209.165.200.10 // going into the branch
+Branch-Edge# show ip int brief // det ext int
+Branch-Edge# show cdp
+Branch-Edge# configure terminal
+Branch-Edge(config)# cdp run
+Branch-Edge(config)# interface s0/0/1 // switching off for external int
+Branch-Edge(config-if)# no cdp enable
+Branch-Edge(config-if)# exit
+Branch-Edge# show cdp neighbors

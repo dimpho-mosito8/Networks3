@@ -1,9 +1,0 @@
-PC> ssh –l admin01 192.168.1.1
-Edge1# ssh –l branchadmin 209.165.200.10
-Branch-Edge# show cdp
-Branch-Edge# configure terminal
-Branch-Edge(config)# cdp run
-Branch-Edge(config)# interface s0/0/1
-Branch-Edge(config-if)# no cdp enable
-Branch-Edge(config-if)# exit
-Branch-Edge# show cdp neighbors
