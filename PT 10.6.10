@@ -1,0 +1,42 @@
+int g0/0
+ip address 172.16.1.1
+no shutdown
+
+ping 172.16.1.2
+
+Router# copy tftp running-config
+
+Address or name of remote host []? 172.16.1.2
+
+Source filename []? RTA-confg
+
+Destination filename [running-config]? <cr>
+
+show running-config
+
+show ip int
+
+int g0/1 
+no shutdown
+
+from pca:
+ping 172.16.1.2
+
+hostname RTA-1
+copy running-config startup-config
+
+RTA-1# copy running-config tftp:
+
+Address or name of remote host []? 172.16.1.2
+
+Destination filename [RTA-1-confg]? <cr>
+
+dir
+
+RTA-1# copy flash tftp:
+
+Source filename []? c1900-universalk9-mz.SPA.151-4.M4.bin
+
+Address or name of remote host []? 172.16.1.2
+
+Destination filename [c1900-universalk9-mz.SPA.151-4.M4.bin]? <cr>
